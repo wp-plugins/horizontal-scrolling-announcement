@@ -1,0 +1,6 @@
+<div style="text-align:left;padding-bottom:0px;padding-top:12px;">
+  <input name="text_management" lang="text_management" class="button-primary" onClick="location.href='options-general.php?page=horizontal-scrolling-announcement/horizontal-scrolling-announcement.php'" value="Content Management" type="button" />
+  <input name="setting_management" lang="setting_management" class="button-primary" onClick="location.href='options-general.php?page=horizontal-scrolling-announcement/horizontal-scrolling-setting.php'" value="Setting Page" type="button" />
+  <input name="setting_management" lang="setting_management" class="button-primary" onClick="window.open('http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/');" value="Plugin Live Demo" type="button" />
+  <input name="setting_management" lang="setting_management" class="button-primary" onClick="window.open('http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/');" value="Plugin Help" type="button" />
+</div>
