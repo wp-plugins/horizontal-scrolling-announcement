@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, scrolling, announcement, widget, wordpress, plugin
 Requires at least: 3.0
-Tested up to: 3.4.1
-Stable tag: 6.0
+Tested up to: 3.4.2
+Stable tag: 6.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -82,7 +82,10 @@ Tested upto 3.2.1 and new option to add links to the scrolling text.
 Tested upto 3.4
 
 = 6.0 =  
-New demo link, www.gopiplus.com
+New demo link, http://www.gopiplus.com
+
+= 6.1 =
+Tested up to 3.4.2
 
 == Changelog ==
 
@@ -102,4 +105,7 @@ Tested upto 3.2.1 and new option to add links to the scrolling text.
 Tested upto 3.4
 
 = 6.0 =  
-New demo link, www.gopiplus.com
+New demo link, http://www.gopiplus.com
+
+= 6.1 =
+Tested up to 3.4.2
