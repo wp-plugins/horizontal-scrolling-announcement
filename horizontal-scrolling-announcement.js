@@ -1,4 +1,5 @@
 // JavaScript Document
+// Plugin Name: Horizontal scrolling announcement
 function has_submit()
 {
 	if(document.form_hsa.hsa_text.value=="")

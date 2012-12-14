@@ -4,7 +4,7 @@
 Plugin Name: Horizontal scrolling announcement
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Description: This horizontal scrolling announcement wordpress plug-in let's scroll the content from one end to another end like reel.    
-Version: 6.1
+Version: 6.2
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
@@ -14,6 +14,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 global $wpdb, $wp_version;
 define("WP_HSA_TABLE", $wpdb->prefix . "hsa_plugin");
+
+function announcement()
+{
+	horizontal_scrolling_announcement();
+}
 
 function horizontal_scrolling_announcement()
 {
@@ -57,18 +62,11 @@ function horizontal_scrolling_announcement()
 	echo $what_marquee;
 }
 
-//if (function_exists (horizontal_scrolling_announcement)) horizontal_scrolling_announcement();
+add_shortcode( 'horizontal-scrolling', 'HSA_shortcode' );
 
-
-add_filter('the_content','HSA_show_filter');
-
-function HSA_show_filter($content)
+function HSA_shortcode( $atts ) 
 {
-	return 	preg_replace_callback('/\[HORIZONTAL-SCROLLING(.*?)\]/sim','HSA_show_filter_callback',$content);
-}
-
-function HSA_show_filter_callback($matches) 
-{
+	// [horizontal-scrolling]
 	global $wpdb;
 	$data = $wpdb->get_results("select hsa_text,hsa_link from ".WP_HSA_TABLE." where hsa_status='YES' ORDER BY hsa_order");
 	if ( ! empty($data) ) 
@@ -242,7 +240,7 @@ function HSA_admin_options()
         <td width="40%" align="left" valign="middle"><input name="hsa_order" type="text" id="hsa_order" size="10" value="<?php echo @$hsa_order_x; ?>" maxlength="3" /></td>
       </tr>
       <tr>
-        <td height="35" colspan="2" align="left" valign="bottom">
+        <td height="35" colspan="2" align="left" valign="middle">
           <input name="publish" lang="publish" class="button-primary" value="<?php echo @$submittext?>" type="submit" />
         <input name="publish" lang="publish" class="button-primary" onclick="_hsa_redirect()" value="Cancel" type="button" /></td>
       </tr>

@@ -23,7 +23,6 @@ if (@$_POST['hsa_submit'])
 	update_option('hsa_scrolldelay', $hsa_scrolldelay );
 	update_option('hsa_direction', $hsa_direction );
 	update_option('hsa_style', $hsa_style );
-
 }
 
 ?>
