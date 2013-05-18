@@ -4,9 +4,9 @@ Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announ
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, scrolling, announcement, widget, wordpress, plugin
-Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 6.2
+Requires at least: 3.4
+Tested up to: 3.6
+Stable tag: 7.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -92,6 +92,9 @@ Tested up to 3.5
 Slight change in the short code, Please find the new short code for your slider.
 New PHP code to add the scroll directly in to the theme file.
 
+= 7.0 =
+Tested up to 3.6
+
 == Changelog ==
 
 = 1.0 =	 
@@ -119,3 +122,6 @@ Tested up to 3.4.2
 Tested up to 3.5
 Slight change in the short code, Please find the new short code for your slider.
 New PHP code to add the scroll directly in to the theme file.
+
+= 7.0 =
+Tested up to 3.6

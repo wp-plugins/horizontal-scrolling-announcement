@@ -4,7 +4,7 @@
 Plugin Name: Horizontal scrolling announcement
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Description: This horizontal scrolling announcement wordpress plug-in let's scroll the content from one end to another end like reel.    
-Version: 6.2
+Version: 7.0
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
@@ -290,10 +290,14 @@ function HSA_admin_options()
         <?php } ?>
       </table>
     </form>
-    <?php 
-	include_once("help.php");
-	help();  
-	?>
+   <br />
+	<strong>Plugin configuration option</strong>
+	<ol>
+		<li>Drag and drop the widget</li>
+		<li>Add directly in the theme</li>
+		<li>Short code for pages and posts</li>
+	</ol>
+	Note: Check official website for more information <a href="http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/" target="_blank">click here</a>
   </div>
 </div>
 <?php
