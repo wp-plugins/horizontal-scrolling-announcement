@@ -1,6 +1,6 @@
 // JavaScript Document
 // Plugin Name: Horizontal scrolling announcement
-function has_submit()
+function hsa_submit()
 {
 	if(document.form_hsa.hsa_text.value=="")
 	{
@@ -26,18 +26,24 @@ function has_submit()
 		document.form_hsa.hsa_order.focus();
 		return false;
 	}
+	else if(document.form_hsa.hsa_group.value == "" || document.form_hsa.hsa_group.value == "Select")
+	{
+		alert("Please select the announcement group.")
+		document.form_hsa.hsa_group.focus();
+		return false;
+	}
 }
 
-function _hsadelete(id)
+function hsa_delete(id)
 {
 	if(confirm("Do you want to delete this record?"))
 	{
-		document.frm_hsa.action="options-general.php?page=horizontal-scrolling-announcement/horizontal-scrolling-announcement.php&AC=DEL&DID="+id;
-		document.frm_hsa.submit();
+		document.frm_hsa_display.action="options-general.php?page=horizontal-scrolling-announcement&ac=del&did="+id;
+		document.frm_hsa_display.submit();
 	}
 }	
 
-function _hsa_redirect()
+function hsa_redirect()
 {
-	window.location = "options-general.php?page=horizontal-scrolling-announcement/horizontal-scrolling-announcement.php";
+	window.location = "options-general.php?page=horizontal-scrolling-announcement";
 }
