@@ -47,3 +47,8 @@ function hsa_redirect()
 {
 	window.location = "options-general.php?page=horizontal-scrolling-announcement";
 }
+
+function hsa_help()
+{
+	window.open("http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/");
+}
