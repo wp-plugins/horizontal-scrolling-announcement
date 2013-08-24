@@ -4,7 +4,7 @@ function hsa_submit()
 {
 	if(document.form_hsa.hsa_text.value=="")
 	{
-		alert("Please enter the text.")
+		alert("Please enter the announcement text.")
 		document.form_hsa.hsa_text.focus();
 		return false;
 	}

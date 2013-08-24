@@ -1,4 +1,9 @@
 <?php
+// Stop direct call
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { 
+	die('You are not allowed to call this page directly.'); 
+}
+
 // Form submitted, check the data
 if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
 {
@@ -61,19 +66,21 @@ if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
         <thead>
           <tr>
             <th class="check-column" scope="row"><input type="checkbox" /></th>
-			<th scope="col">Text</th>
+			<th width="55%" scope="col">Announcement text</th>
             <th scope="col">Order</th>
 			<th scope="col">Display</th>
 			<th scope="col">Group</th>
+			<th scope="col">Expiration</th>
           </tr>
         </thead>
 		<tfoot>
           <tr>
             <th class="check-column" scope="row"><input type="checkbox" /></th>
-			<th scope="col">Text</th>
+			<th scope="col">Announcement text</th>
             <th scope="col">Order</th>
 			<th scope="col">Display</th>
 			<th scope="col">Group</th>
+			<th scope="col">Expiration</th>
           </tr>
         </tfoot>
 		<tbody>
@@ -95,6 +102,7 @@ if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
 						<td><?php echo stripslashes($data['hsa_order']); ?></td>
 						<td><?php echo stripslashes($data['hsa_status']); ?></td>
 						<td><?php echo stripslashes($data['hsa_group']); ?></td>
+						<td><?php echo substr($data['hsa_dateend'],0,10); ?></td>
 					</tr>
 					<?php 
 					$i = $i+1; 
@@ -102,7 +110,7 @@ if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
 			}
 			else
 			{
-				?><tr><td colspan="5" align="center">No records available.</td></tr><?php 
+				?><tr><td colspan="6" align="center">No records available.</td></tr><?php 
 			}
 			?>
 		</tbody>
@@ -113,16 +121,16 @@ if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
 	  <div class="tablenav">
 	  <h2>
 	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=horizontal-scrolling-announcement&amp;ac=add">Add new</a>
-	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=horizontal-scrolling-announcement&amp;ac=set">Setting management</a>
+	  <a class="button add-new-h2" href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=horizontal-scrolling-announcement&amp;ac=set">Default Settings</a>
 	  <a class="button add-new-h2" target="_blank" href="<?php echo WP_hsa_FAV; ?>">Help</a>
 	  </h2>
 	  </div>
 		<div style="height:5px"></div>
 		<h3>Plugin configuration option</h3>
 		<ol>
+			<li>Drag and drop the widget to your sidebar.</li>
 			<li>Add the plugin in the posts or pages using short code.</li>
 			<li>Add directly in to the theme using PHP code.</li>
-			<li>Drag and drop the widget to your sidebar.</li>
 		</ol>
 		<p class="description"><?php echo WP_hsa_LINK; ?></p>
 	</div>

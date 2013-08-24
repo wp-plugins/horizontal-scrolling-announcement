@@ -1,3 +1,9 @@
+<?php
+// Stop direct call
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { 
+	die('You are not allowed to call this page directly.'); 
+}
+?>
 <div class="wrap">
 <?php
 $did = isset($_GET['did']) ? $_GET['did'] : '0';
@@ -39,7 +45,8 @@ else
 		'hsa_order' => $data['hsa_order'],
 		'hsa_status' => $data['hsa_status'],
 		'hsa_link' => $data['hsa_link'],
-		'hsa_group' => $data['hsa_group']
+		'hsa_group' => $data['hsa_group'],
+		'hsa_dateend' => $data['hsa_dateend']
 	);
 }
 // Form submitted, check the data
@@ -71,6 +78,7 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 	
 	$form['hsa_link'] = isset($_POST['hsa_link']) ? $_POST['hsa_link'] : '';
 	$form['hsa_group'] = isset($_POST['hsa_group']) ? $_POST['hsa_group'] : '';
+	$form['hsa_dateend'] = isset($_POST['hsa_dateend']) ? $_POST['hsa_dateend'] : '0000-00-00';
 
 	//	No errors found, we can add this Group to the table
 	if ($hsa_error_found == FALSE)
@@ -81,10 +89,11 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 				`hsa_order` = %s,
 				`hsa_status` = %s,
 				`hsa_link` = %s,
-				`hsa_group` = %s
+				`hsa_group` = %s,
+				`hsa_dateend` = %s
 				WHERE hsa_id = %d
 				LIMIT 1",
-				array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], $did)
+				array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], $form['hsa_dateend'], $did)
 			);
 		$wpdb->query($sSql);
 		
@@ -167,6 +176,10 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 	?>
 	</select>
 	<p>Please select your announcement group.</p>
+	
+	<label for="tag-title">Expiration date</label>
+	<input name="hsa_dateend" type="text" id="hsa_dateend" value="<?php echo substr($form['hsa_dateend'],0,10); ?>" maxlength="10" />
+	<p>Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-31 : Is equal to no expire.</p>
 	  
       <input name="hsa_id" id="hsa_id" type="hidden" value="<?php echo $form['hsa_id']; ?>">
       <input type="hidden" name="hsa_form_submit" value="yes"/>

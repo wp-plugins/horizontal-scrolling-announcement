@@ -1,5 +1,12 @@
+<?php
+// Stop direct call
+if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { 
+	die('You are not allowed to call this page directly.'); 
+}
+?>
 <div class="wrap">
 <?php
+
 $hsa_errors = array();
 $hsa_success = '';
 $hsa_error_found = FALSE;
@@ -11,7 +18,8 @@ $form = array(
 	'hsa_order' => '',
 	'hsa_status' => '',
 	'hsa_link' => '',
-	'hsa_group' => ''
+	'hsa_group' => '',
+	'hsa_dateend' => ''
 );
 
 // Form submitted, check the data
@@ -43,19 +51,19 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 	
 	$form['hsa_link'] = isset($_POST['hsa_link']) ? $_POST['hsa_link'] : '';
 	$form['hsa_group'] = isset($_POST['hsa_group']) ? $_POST['hsa_group'] : '';
+	$form['hsa_dateend'] = isset($_POST['hsa_dateend']) ? $_POST['hsa_dateend'] : '0000-00-00';
 
 	//	No errors found, we can add this Group to the table
 	if ($hsa_error_found == FALSE)
 	{
-		$sql = $wpdb->prepare(
+		$sSql = $wpdb->prepare(
 			"INSERT INTO `".WP_HSA_TABLE."`
-			(`hsa_text`, `hsa_order`, `hsa_status`, `hsa_link`, `hsa_group`)
-			VALUES(%s, %s, %s, %s, %s)",
-			array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'])
+			(`hsa_text`, `hsa_order`, `hsa_status`, `hsa_link`, `hsa_group`, `hsa_dateend`)
+			VALUES(%s, %s, %s, %s, %s, %s)",
+			array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], $form['hsa_dateend'])
 		);
 		
-		$wpdb->query($sql);
-		
+		$wpdb->query($sSql);
 		$hsa_success = __('New details was successfully added.', WP_hsa_UNIQUE_NAME);
 		
 		// Reset the form fields
@@ -65,7 +73,8 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 			'hsa_order' => '',
 			'hsa_status' => '',
 			'hsa_link' => '',
-			'hsa_group' => ''
+			'hsa_group' => '',
+			'hsa_dateend' => ''
 		);
 	}
 }
@@ -139,6 +148,10 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 		?>
 		</select>
 		<p>Please select your announcement group.</p>
+		
+		<label for="tag-title">Expiration date</label>
+		<input name="hsa_dateend" type="text" id="hsa_dateend" value="9999-12-31" maxlength="10" />
+		<p>Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-31 : Is equal to no expire.</p>
 					
       <input name="hsa_id" id="hsa_id" type="hidden" value="">
       <input type="hidden" name="hsa_form_submit" value="yes"/>
