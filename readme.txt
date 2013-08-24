@@ -21,7 +21,7 @@ Check official website gopiplus.com for live demo [http://www.gopiplus.com/work/
 3. [Comments/Suggestion](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/)		
 4. [About author](http://www.gopiplus.com/work/)
 
-This horizontal scrolling announcement wordpress plug-in let’s scroll the content from one end to another end like reel, internally we used HTML marquee to do the action. There are some places where it can work well, such as in RSS scrollers, important announcement, promotional offers and deals.			
+This horizontal scrolling announcement wordpress plug-in lets scroll the content from one end to another end like reel, internally we used HTML marquee to do the action. There are some places where it can work well, such as in RSS scrollers, important announcement, promotional offers and deals.			
 
 = Feature of this plugin =
 
