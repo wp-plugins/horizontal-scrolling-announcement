@@ -186,7 +186,7 @@ function HSA_activation()
 			 hsa_id mediumint(9) NOT NULL AUTO_INCREMENT,
 			 hsa_text text NOT NULL,
 			 hsa_order int(11) NOT NULL default '0',
-			 hsa_status char(3) NOT NULL default 'No',
+			 hsa_status char(3) NOT NULL default 'YES',
 			 hsa_date datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,	 
 			 hsa_link VARCHAR(1024) DEFAULT '#' NOT NULL,
 			 hsa_group VARCHAR(100) DEFAULT 'GROUP1' NOT NULL,
