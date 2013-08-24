@@ -155,11 +155,13 @@ function HSA_deactivate()
 
 function HSA_uninstall()
 {
+	global $wpdb;
 	delete_option('hsa_title');
 	delete_option('hsa_scrollamount');
 	delete_option('hsa_scrolldelay');
 	delete_option('hsa_direction');
 	delete_option('hsa_style');
+	delete_option('hsa_pluginversion');
 	if($wpdb->get_var("show tables like '". WP_HSA_TABLE . "'") == WP_HSA_TABLE) 
 	{
 		$wpdb->query("DROP TABLE ". WP_HSA_TABLE);
