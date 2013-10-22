@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 3.6
-Stable tag: 7.2
+Tested up to: 3.7
+Stable tag: 7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -121,6 +121,11 @@ After plugin upgrade, Please Deactivate and Activate the plugin once.
 2. Support multiple instance widget.
 3. Added few security features.
 
+= 7.3 =
+
+1. Default character set to UTF8, thus we can enter any languages in the admin announcement box.
+2. Tested up to 3.7
+
 == Changelog ==
 
 = 1.0 =	 
@@ -174,3 +179,8 @@ After plugin upgrade, Please Deactivate and Activate the plugin once.
 1. Option to enter expiration date for the message.
 2. Support multiple instance widget.
 3. Added few security features.
+
+= 7.3 =
+
+1. Default character set to UTF8, thus we can enter any languages in the admin announcement box.
+2. Tested up to 3.7

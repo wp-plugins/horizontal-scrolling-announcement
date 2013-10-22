@@ -3,7 +3,7 @@
 Plugin Name: Horizontal scrolling announcement
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Description: This horizontal scrolling announcement wordpress plug-in let's scroll the content from one end to another end like reel.    
-Version: 7.2
+Version: 7.3
 Author: Gopi.R
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
@@ -17,7 +17,7 @@ define("WP_hsa_UNIQUE_NAME", "horizontal-scrolling-announcement");
 define("WP_hsa_TITLE", "Horizontal scrolling announcement");
 define('WP_hsa_FAV', 'http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/');
 define('WP_hsa_LINK', 'Check official website for more information <a target="_blank" href="'.WP_hsa_FAV.'">click here</a>');
-$hsa_db_version = "7.2";
+$hsa_db_version = "7.3";
 
 function announcement()
 {
@@ -106,7 +106,7 @@ function HSA_shortcode( $atts )
 			}
 			else
 			{
-				$hsa = $hsa . "&nbsp;&nbsp;";
+				$hsa = $hsa . "&nbsp;&nbsp;&nbsp;&nbsp;";
 				if($link != "") { $hsa = $hsa . "<a href='".$link."'>"; } 
 				$hsa = $hsa . stripslashes($data->hsa_text);
 				if($link != "") { $hsa = $hsa . "</a>"; }
@@ -192,13 +192,13 @@ function HSA_activation()
 			 hsa_group VARCHAR(100) DEFAULT 'GROUP1' NOT NULL,
 			 hsa_dateend datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			 UNIQUE KEY hsa_id (hsa_id)
-		  );";
+		  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
   		dbDelta( $sSql );
 		
 		if($hsa_pluginversion == "")
 		{
-			add_option('hsa_pluginversion', "7.2");
+			add_option('hsa_pluginversion', "7.3");
 		}
 		else
 		{
