@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 3.7
-Stable tag: 7.3
+Tested up to: 3.7.1
+Stable tag: 7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -56,6 +56,8 @@ Q3. Is possible to add the link to the scrolling messages?
 Q4. Is possible to add the HTML content to scroll?
 
 Q5. Is possible to add images in the scroll?
+
+Q6. How to translate this plugin in any language?
 
 Answer : [http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/ ](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/)	
 
@@ -126,6 +128,12 @@ After plugin upgrade, Please Deactivate and Activate the plugin once.
 1. Default character set to UTF8, thus we can enter any languages in the admin announcement box.
 2. Tested up to 3.7
 
+= 7.4 =
+
+1. Tested up to 3.7.1
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (horizontal-scrolling-announcement.po) available in the languages folder.
+
 == Changelog ==
 
 = 1.0 =	 
@@ -184,3 +192,9 @@ After plugin upgrade, Please Deactivate and Activate the plugin once.
 
 1. Default character set to UTF8, thus we can enter any languages in the admin announcement box.
 2. Tested up to 3.7
+
+= 7.4 =
+
+1. Tested up to 3.7.1
+2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
+Plugin *.po file (horizontal-scrolling-announcement.po) available in the languages folder.

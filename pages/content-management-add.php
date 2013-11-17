@@ -99,68 +99,68 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 <script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/horizontal-scrolling-announcement/pages/setting.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php echo WP_hsa_TITLE; ?></h2>
+	<h2><?php _e(WP_hsa_TITLE, WP_hsa_UNIQUE_NAME); ?></h2>
 	<form name="form_hsa" method="post" action="#" onsubmit="return hsa_submit()"  >
-      <h3>Add details</h3>
-      
-		<label for="tag-title">Enter the message/announcement</label>
+		<h3><?php _e('Add details', WP_hsa_UNIQUE_NAME); ?></h3>
+			  
+		<label for="tag-title"><?php _e('Enter the announcement', WP_hsa_UNIQUE_NAME); ?></label>
 		<textarea name="hsa_text" cols="110" rows="6" id="hsa_text"></textarea>
-		<p>Please enter your announcement text.</p>
-			
-		<label for="tag-title">Enter target link</label>
-		<input name="hsa_link" type="text" id="hsa_link" size="113" value="" maxlength="1024" />
-		<p>When someone clicks on the picture, where do you want to send them.</p>
+		<p><?php _e('Please enter your announcement text.', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title">Display status</label>
+		<label for="tag-title"><?php __('Enter target link', WP_hsa_UNIQUE_NAME); ?></label>
+		<input name="hsa_link" type="text" id="hsa_link" size="113" value="" maxlength="1024" />
+		<p><?php _e('When someone clicks on the picture, where do you want to send them.', WP_hsa_UNIQUE_NAME); ?></p>
+		
+		<label for="tag-title"><?php __('Display status', WP_hsa_UNIQUE_NAME); ?></label>
 		<select name="hsa_status" id="hsa_status">
 			<option value='YES'>Yes</option>
 			<option value='NO'>No</option>
 		</select>
-		<p>Do you want to show this announcement in your scroll?</p>
+		<p><?php _e('Do you want to show this announcement in your scroll?', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title">Display order</label>
+		<label for="tag-title"><?php __('Display order', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_order" type="text" id="hsa_order" value="" maxlength="3" />
-		<p>What order should this announcement be played in. should it come 1st, 2nd, 3rd, etc..</p>
+		<p><?php _e('What order should this announcement be played in. should it come 1st, 2nd, 3rd, etc..', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title">Announcement group</label>
+		<label for="tag-title"><?php _e('Announcement group', WP_hsa_UNIQUE_NAME); ?></label>
 		<select name="hsa_group" id="hsa_group">
-		<option value='Select'>Select</option>
-		<?php
-		$sSql = "SELECT distinct(hsa_group) as hsa_group FROM `".WP_HSA_TABLE."` order by hsa_group";
-		$myDistinctData = array();
-		$arrDistinctDatas = array();
-		$myDistinctData = $wpdb->get_results($sSql, ARRAY_A);
-		$i = 0;
-		foreach ($myDistinctData as $DistinctData)
-		{
-			$arrDistinctData[$i]["hsa_group"] = strtoupper($DistinctData['hsa_group']);
-			$i = $i+1;
-		}
-		for($j=$i; $j<$i+5; $j++)
-		{
-			$arrDistinctData[$j]["hsa_group"] = "GROUP" . $j;
-		}
-		$arrDistinctDatas = array_unique($arrDistinctData, SORT_REGULAR);
-		foreach ($arrDistinctDatas as $arrDistinct)
-		{
-			?><option value='<?php echo strtoupper($arrDistinct["hsa_group"]); ?>'><?php echo strtoupper($arrDistinct["hsa_group"]); ?></option><?php
-		}
-		?>
+			<option value='Select'>Select</option>
+			<?php
+			$sSql = "SELECT distinct(hsa_group) as hsa_group FROM `".WP_HSA_TABLE."` order by hsa_group";
+			$myDistinctData = array();
+			$arrDistinctDatas = array();
+			$myDistinctData = $wpdb->get_results($sSql, ARRAY_A);
+			$i = 0;
+			foreach ($myDistinctData as $DistinctData)
+			{
+				$arrDistinctData[$i]["hsa_group"] = strtoupper($DistinctData['hsa_group']);
+				$i = $i+1;
+			}
+			for($j=$i; $j<$i+5; $j++)
+			{
+				$arrDistinctData[$j]["hsa_group"] = "GROUP" . $j;
+			}
+			$arrDistinctDatas = array_unique($arrDistinctData, SORT_REGULAR); // Comment this line if any problem
+			foreach ($arrDistinctDatas as $arrDistinct)
+			{
+				?><option value='<?php echo strtoupper($arrDistinct["hsa_group"]); ?>'><?php echo strtoupper($arrDistinct["hsa_group"]); ?></option><?php
+			}
+			?>
 		</select>
-		<p>Please select your announcement group.</p>
+		<p><?php _e('Please select your announcement group.', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title">Expiration date</label>
+		<label for="tag-title"><?php _e('Expiration date', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_dateend" type="text" id="hsa_dateend" value="9999-12-31" maxlength="10" />
-		<p>Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-31 : Is equal to no expire.</p>
-					
-      <input name="hsa_id" id="hsa_id" type="hidden" value="">
-      <input type="hidden" name="hsa_form_submit" value="yes"/>
-      <p class="submit">
-        <input name="publish" lang="publish" class="button add-new-h2" value="Submit" type="submit" />&nbsp;
-        <input name="publish" lang="publish" class="button add-new-h2" onclick="hsa_redirect()" value="Cancel" type="button" />&nbsp;
-        <input name="Help" lang="publish" class="button add-new-h2" onclick="hsa_help()" value="Help" type="button" />
-      </p>
-	  <?php wp_nonce_field('hsa_form_add'); ?>
+		<p><?php _e('Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-31 : Is equal to no expire.', WP_hsa_UNIQUE_NAME); ?></p>
+							
+		<input name="hsa_id" id="hsa_id" type="hidden" value="">
+		<input type="hidden" name="hsa_form_submit" value="yes"/>
+		<p class="submit">
+			<input name="publish" lang="publish" class="button add-new-h2" value="Submit" type="submit" />&nbsp;
+			<input name="publish" lang="publish" class="button add-new-h2" onclick="hsa_redirect()" value="Cancel" type="button" />&nbsp;
+			<input name="Help" lang="publish" class="button add-new-h2" onclick="hsa_help()" value="<?php _e('Help', WP_hsa_UNIQUE_NAME); ?>" type="button" />
+		</p>
+		<?php wp_nonce_field('hsa_form_add'); ?>
     </form>
 </div>
 <p class="description"><?php echo WP_hsa_LINK; ?></p>
