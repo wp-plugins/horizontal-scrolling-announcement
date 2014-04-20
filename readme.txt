@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 3.8
-Stable tag: 7.5
+Tested up to: 3.9
+Stable tag: 7.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -59,15 +59,17 @@ Q5. Is possible to add images in the scroll?
 
 Q6. How to translate this plugin in any language?
 
-Answer : [http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/ ](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/)	
+Answer : [http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/)	
 
 == Screenshots ==
 
-1. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+1. Front End. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 
-2. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+2. Admin 1. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 
-3. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+3. Admin Widget. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+
+4. Admin 2. http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 
 == Upgrade Notice ==
 
@@ -133,6 +135,14 @@ After plugin upgrade, Please Deactivate and Activate the plugin once.
 1. Tested up to 3.7.1
 2. Now this plugin supports localization (or internationalization). i.e. option to translate into other languages. 
 Plugin *.po file (horizontal-scrolling-announcement.po) available in the languages folder.
+
+= 7.5 =
+
+1. Tested up to 3.8
+
+= 7.6 =
+
+1. Tested up to 3.9
 
 == Changelog ==
 
@@ -202,3 +212,7 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 = 7.5 =
 
 1. Tested up to 3.8
+
+= 7.6 =
+
+1. Tested up to 3.9

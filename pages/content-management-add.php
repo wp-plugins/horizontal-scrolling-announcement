@@ -1,12 +1,6 @@
-<?php
-// Stop direct call
-if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { 
-	die('You are not allowed to call this page directly.'); 
-}
-?>
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <div class="wrap">
 <?php
-
 $hsa_errors = array();
 $hsa_success = '';
 $hsa_error_found = FALSE;
@@ -91,7 +85,8 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 {
 	?>
 	<div class="updated fade">
-		<p><strong><?php echo $hsa_success; ?> <a href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=horizontal-scrolling-announcement">Click here</a> to view the details</strong></p>
+		<p><strong><?php echo $hsa_success; ?> 
+		<a href="<?php echo get_option('siteurl'); ?>/wp-admin/options-general.php?page=horizontal-scrolling-announcement">Click here</a> to view the details</strong></p>
 	</div>
 	<?php
 }
@@ -140,7 +135,7 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 			{
 				$arrDistinctData[$j]["hsa_group"] = "GROUP" . $j;
 			}
-			$arrDistinctDatas = array_unique($arrDistinctData, SORT_REGULAR); // Comment this line if any problem
+			$arrDistinctDatas = array_unique($arrDistinctData, SORT_REGULAR); // Comment this line if any problem in the selection
 			foreach ($arrDistinctDatas as $arrDistinct)
 			{
 				?><option value='<?php echo strtoupper($arrDistinct["hsa_group"]); ?>'><?php echo strtoupper($arrDistinct["hsa_group"]); ?></option><?php

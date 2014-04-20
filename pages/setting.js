@@ -1,5 +1,6 @@
-// JavaScript Document
 // Plugin Name: Horizontal scrolling announcement
+// Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+
 function hsa_submit()
 {
 	if(document.form_hsa.hsa_text.value=="")

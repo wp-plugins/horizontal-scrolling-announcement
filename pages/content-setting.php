@@ -1,9 +1,4 @@
-<?php
-// Stop direct call
-if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { 
-	die('You are not allowed to call this page directly.'); 
-}
-?>
+<?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <div class="wrap">
   <div class="form-wrap">
     <div id="icon-edit" class="icon32 icon32-posts-post"><br>
@@ -43,7 +38,7 @@ if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 	<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/horizontal-scrolling-announcement/pages/setting.js"></script>
     <form name="hsa_form" method="post" action="">
         <h3><?php _e('Default settings', WP_hsa_UNIQUE_NAME); ?></h3>
-		<label for="tag-width"><?php _e('Title', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('Widget Title', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_title" type="text" value="<?php echo $hsa_title; ?>"  id="hsa_title" size="70" maxlength="150">
 		<p><?php _e('Please enter your widget title.', WP_hsa_UNIQUE_NAME); ?></p>
 		
