@@ -3,7 +3,7 @@
 Plugin Name: Horizontal scrolling announcement
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Description: This horizontal scrolling announcement wordpress plug-in let's scroll the content from one end to another end like reel.    
-Version: 7.6
+Version: 7.7
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
@@ -17,7 +17,7 @@ define("WP_hsa_UNIQUE_NAME", "horizontal-scrolling-announcement");
 define("WP_hsa_TITLE", "Horizontal scrolling announcement");
 define('WP_hsa_FAV', 'http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/');
 define('WP_hsa_LINK', 'Check official website for more information <a target="_blank" href="'.WP_hsa_FAV.'">click here</a>');
-$hsa_db_version = "7.3";
+$hsa_db_version = "7.7";
 
 function announcement()
 {
@@ -83,6 +83,7 @@ function HSA_shortcode( $atts )
 
 	$sSql = "select hsa_text,hsa_link from ".WP_HSA_TABLE." where hsa_status='YES'";
 	$sSql = $sSql . " and ( hsa_dateend >= NOW() or hsa_dateend = '0000-00-00 00:00:00')";
+	$sSql = $sSql . " and ( hsa_datestart <= NOW() or hsa_datestart = '0000-00-00 00:00:00')";
 	if($group <> "")
 	{
 		$sSql = $sSql . " and hsa_group='$group'";
@@ -139,10 +140,10 @@ function HSA_shortcode( $atts )
 	}
 	else
 	{
-		$what_marquee = $what_marquee . "No announcement available.";
-		if($group <> "")
+		$hsa_noannouncement = get_option('hsa_noannouncement');
+		if($hsa_noannouncement <> "")
 		{
-			$what_marquee =  $what_marquee . " Please check this group " . $group;
+			$what_marquee = $what_marquee . $hsa_noannouncement;
 		}
 	}
 
@@ -163,6 +164,7 @@ function HSA_uninstall()
 	delete_option('hsa_direction');
 	delete_option('hsa_style');
 	delete_option('hsa_pluginversion');
+	delete_option('hsa_noannouncement');
 	if($wpdb->get_var("show tables like '". WP_HSA_TABLE . "'") == WP_HSA_TABLE) 
 	{
 		$wpdb->query("DROP TABLE ". WP_HSA_TABLE);
@@ -192,6 +194,7 @@ function HSA_activation()
 			 hsa_link VARCHAR(1024) DEFAULT '#' NOT NULL,
 			 hsa_group VARCHAR(100) DEFAULT 'GROUP1' NOT NULL,
 			 hsa_dateend datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+			 hsa_datestart datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			 UNIQUE KEY hsa_id (hsa_id)
 		  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -199,7 +202,7 @@ function HSA_activation()
 		
 		if($hsa_pluginversion == "")
 		{
-			add_option('hsa_pluginversion', "7.3");
+			add_option('hsa_pluginversion', "7.7");
 		}
 		else
 		{
@@ -208,7 +211,7 @@ function HSA_activation()
 		
 		if($hsa_tableexists == "NO")
 		{
-			$welcome_text = "Congratulations, you just completed the installation! This is horizontal scrolling announcement plugin from www.gopiplus.com";		
+			$welcome_text = "Congratulations, you just completed Horizontal Scrolling Announcement plugin installation.";		
 			$rows_affected = $wpdb->insert( WP_HSA_TABLE , array( 'hsa_text' => $welcome_text) );
 		}
 	}
@@ -218,6 +221,7 @@ function HSA_activation()
 	add_option('hsa_scrolldelay', "5");
 	add_option('hsa_direction', "left");
 	add_option('hsa_style', "");
+	add_option('hsa_noannouncement', "No announcement available or all announcement expired.");
 }
 
 function HSA_admin_options() 

@@ -10,8 +10,8 @@
 	$hsa_scrolldelay = get_option('hsa_scrolldelay');
 	$hsa_direction = get_option('hsa_direction');
 	$hsa_style = get_option('hsa_style');
-	
-	if (@$_POST['hsa_submit']) 
+	$hsa_noannouncement = get_option('hsa_noannouncement');
+	if (isset($_POST['hsa_submit'])) 
 	{
 		//	Just security thingy that wordpress offers us
 		check_admin_referer('hsa_form_setting');
@@ -21,12 +21,14 @@
 		$hsa_scrolldelay = stripslashes($_POST['hsa_scrolldelay']);
 		$hsa_direction = stripslashes($_POST['hsa_direction']);
 		$hsa_style = stripslashes($_POST['hsa_style']);
+		$hsa_noannouncement = stripslashes($_POST['hsa_noannouncement']);
 	
 		update_option('hsa_title', $hsa_title );
 		update_option('hsa_scrollamount', $hsa_scrollamount );
 		update_option('hsa_scrolldelay', $hsa_scrolldelay );
 		update_option('hsa_direction', $hsa_direction );
 		update_option('hsa_style', $hsa_style );
+		update_option('hsa_noannouncement', $hsa_noannouncement );
 		
 		?>
 		<div class="updated fade">
@@ -50,7 +52,7 @@
 		<input name="hsa_scrolldelay" type="text" value="<?php echo $hsa_scrolldelay; ?>"  id="hsa_scrolldelay" maxlength="3">
 		<p><?php _e('Set the amount of delay in milliseconds. (Example: 5)', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-width"><?php __('Direction', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('Direction', WP_hsa_UNIQUE_NAME); ?></label>
 		<select name="hsa_direction" id="hsa_direction">
 			<option value='left' <?php if($hsa_direction == 'left') { echo "selected='selected'" ; } ?>>Right to Left</option>
 			<option value='right' <?php if($hsa_direction == 'right') { echo "selected='selected'" ; } ?>>Left to Right</option>
@@ -60,6 +62,10 @@
 		<label for="tag-width"><?php _e('CSS attribute', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_style" type="text" value="<?php echo $hsa_style; ?>"  id="hsa_style" size="70" maxlength="500">
 		<p><?php _e('Please enter your CSS attributes for style. (Example: color:#FF0000; font:Arial;)', WP_hsa_UNIQUE_NAME); ?></p>
+		
+		<label for="tag-width"><?php _e('No announcement text', WP_hsa_UNIQUE_NAME); ?></label>
+		<input name="hsa_noannouncement" type="text" value="<?php echo $hsa_noannouncement; ?>"  id="hsa_noannouncement" size="70" maxlength="500">
+		<p><?php _e('This text will be display, if no announcement available or all announcement expired.', WP_hsa_UNIQUE_NAME); ?></p>
 		
 		<p class="submit">
 		<input name="hsa_submit" id="hsa_submit" class="button" value="Submit" type="submit" />

@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 3.9
-Stable tag: 7.6
+Tested up to: 3.9.1
+Stable tag: 7.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -21,25 +21,35 @@ Check official website gopiplus.com for live demo [http://www.gopiplus.com/work/
 3. [Comments/Suggestion](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/)		
 4. [About author](http://www.gopiplus.com/work/)
 
-This horizontal scrolling announcement wordpress plug-in lets scroll the content from one end to another end like reel, internally we used HTML marquee to do the action. There are some places where it can work well, such as in RSS scrollers, important announcement, promotional offers and deals.			
+This horizontal scrolling announcement wordpress plug-in let’s scroll the content from one end to another end like reel, internally we used HTML marquee to do the action. This is the simple way to create scrolling text in your website.	
 
 = Feature of this plugin =
 
-1. Easy to customize
-2. Easy styles override option
-3. Configurable scroll amount
-4. Option to update scroll delay
-5. Option to update the scroll direction
-6. Option to pause the scroll on mouse over
-7. Option to enter expiration date for the message
-
-[Click here](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/) to see detailed information about this plugin.	
+1. Easy to customize.
+2. Easy styles override option.
+3. Configurable scroll amount.
+4. Option to update scroll delay.
+5. Option to update the scroll direction.
+6. Option to pause the scroll on mouse over.
+7. Option to enter announcement display start date.
+8. Option to enter expiration date for announcement.
 
 = Plugin configuration =
 
 1. Add the plugin in the posts or pages using short code.
 2. Add directly in to the theme using PHP code.
 3. Drag and drop the widget to your sidebar.
+
+= Special Note =
+
+Those who are getting problem after plugin upgrade. Please do this one time manually. Deactivate and Activate the plugin manually once. So the plugin will start the work as usual. Please post your comments if you have any problem.
+
+= Frequently Asked Questions =
+
+1. How to add this plugin at footer of your website?
+2. How to add this plugin at top of your page under top menu?
+
+[Answer](http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/)	
 
 == Installation ==
 
@@ -144,6 +154,11 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 1. Tested up to 3.9
 
+= 7.7 =
+
+1. Added start date option for announcement (Expiration date option already available).
+2. Added option (In setting page) to change default text when no announcement available or all announcement expired.
+
 == Changelog ==
 
 = 1.0 =	 
@@ -216,3 +231,8 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 = 7.6 =
 
 1. Tested up to 3.9
+
+= 7.7 =
+
+1. Added start date option for announcement (Expiration date option already available).
+2. Added option (In setting page) to change default text when no announcement available or all announcement expired.

@@ -13,7 +13,8 @@ $form = array(
 	'hsa_status' => '',
 	'hsa_link' => '',
 	'hsa_group' => '',
-	'hsa_dateend' => ''
+	'hsa_dateend' => '',
+	'hsa_datestart' => ''
 );
 
 // Form submitted, check the data
@@ -46,15 +47,16 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 	$form['hsa_link'] = isset($_POST['hsa_link']) ? $_POST['hsa_link'] : '';
 	$form['hsa_group'] = isset($_POST['hsa_group']) ? $_POST['hsa_group'] : '';
 	$form['hsa_dateend'] = isset($_POST['hsa_dateend']) ? $_POST['hsa_dateend'] : '0000-00-00';
+	$form['hsa_datestart'] = isset($_POST['hsa_datestart']) ? $_POST['hsa_datestart'] : '0000-00-00';
 
 	//	No errors found, we can add this Group to the table
 	if ($hsa_error_found == FALSE)
 	{
 		$sSql = $wpdb->prepare(
 			"INSERT INTO `".WP_HSA_TABLE."`
-			(`hsa_text`, `hsa_order`, `hsa_status`, `hsa_link`, `hsa_group`, `hsa_dateend`)
-			VALUES(%s, %s, %s, %s, %s, %s)",
-			array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], $form['hsa_dateend'])
+			(`hsa_text`, `hsa_order`, `hsa_status`, `hsa_link`, `hsa_group`, `hsa_dateend`, `hsa_datestart`)
+			VALUES(%s, %s, %s, %s, %s, %s, %s)",
+			array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], $form['hsa_dateend'], $form['hsa_datestart'])
 		);
 		
 		$wpdb->query($sSql);
@@ -68,7 +70,8 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 			'hsa_status' => '',
 			'hsa_link' => '',
 			'hsa_group' => '',
-			'hsa_dateend' => ''
+			'hsa_dateend' => '',
+			'hsa_datestart' => ''
 		);
 	}
 }
@@ -99,21 +102,21 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 		<h3><?php _e('Add details', WP_hsa_UNIQUE_NAME); ?></h3>
 			  
 		<label for="tag-title"><?php _e('Enter the announcement', WP_hsa_UNIQUE_NAME); ?></label>
-		<textarea name="hsa_text" cols="110" rows="6" id="hsa_text"></textarea>
+		<textarea name="hsa_text" cols="80" rows="6" id="hsa_text"></textarea>
 		<p><?php _e('Please enter your announcement text.', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title"><?php __('Enter target link', WP_hsa_UNIQUE_NAME); ?></label>
-		<input name="hsa_link" type="text" id="hsa_link" size="113" value="" maxlength="1024" />
-		<p><?php _e('When someone clicks on the picture, where do you want to send them.', WP_hsa_UNIQUE_NAME); ?></p>
+		<label for="tag-title"><?php _e('Enter target link', WP_hsa_UNIQUE_NAME); ?></label>
+		<input name="hsa_link" type="text" id="hsa_link" size="82" value="" maxlength="1024" />
+		<p><?php _e('When someone clicks on the picture, where do you want to send them. URL must start with either http or https.', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title"><?php __('Display status', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-title"><?php _e('Display status', WP_hsa_UNIQUE_NAME); ?></label>
 		<select name="hsa_status" id="hsa_status">
 			<option value='YES'>Yes</option>
 			<option value='NO'>No</option>
 		</select>
 		<p><?php _e('Do you want to show this announcement in your scroll?', WP_hsa_UNIQUE_NAME); ?></p>
 		
-		<label for="tag-title"><?php __('Display order', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-title"><?php _e('Display order', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_order" type="text" id="hsa_order" value="" maxlength="3" />
 		<p><?php _e('What order should this announcement be played in. should it come 1st, 2nd, 3rd, etc..', WP_hsa_UNIQUE_NAME); ?></p>
 		
@@ -143,6 +146,10 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 			?>
 		</select>
 		<p><?php _e('Please select your announcement group.', WP_hsa_UNIQUE_NAME); ?></p>
+		
+		<label for="tag-title"><?php _e('Start date', WP_hsa_UNIQUE_NAME); ?></label>
+		<input name="hsa_datestart" type="text" id="hsa_datestart" value="2014-01-01" maxlength="10" />
+		<p><?php _e('Please enter announcement display start date in this format YYYY-MM-DD <br /> 0000-00-00 : Is equal to no start date.', WP_hsa_UNIQUE_NAME); ?></p>
 		
 		<label for="tag-title"><?php _e('Expiration date', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_dateend" type="text" id="hsa_dateend" value="9999-12-31" maxlength="10" />
