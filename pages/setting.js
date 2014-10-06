@@ -1,5 +1,6 @@
 // Plugin Name: Horizontal scrolling announcement
 // Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+// Author: Gopi Ramasamy
 
 function hsa_submit()
 {

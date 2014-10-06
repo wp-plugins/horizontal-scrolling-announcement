@@ -42,7 +42,8 @@ else
 		'hsa_link' => $data['hsa_link'],
 		'hsa_group' => $data['hsa_group'],
 		'hsa_dateend' => $data['hsa_dateend'],
-		'hsa_datestart' => $data['hsa_datestart']
+		'hsa_datestart' => $data['hsa_datestart'],
+		'hsa_target' => $data['hsa_target']
 	);
 }
 // Form submitted, check the data
@@ -76,6 +77,7 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 	$form['hsa_group'] = isset($_POST['hsa_group']) ? $_POST['hsa_group'] : '';
 	$form['hsa_dateend'] = isset($_POST['hsa_dateend']) ? $_POST['hsa_dateend'] : '0000-00-00';
 	$form['hsa_datestart'] = isset($_POST['hsa_datestart']) ? $_POST['hsa_datestart'] : '0000-00-00';
+	$form['hsa_target'] = isset($_POST['hsa_target']) ? $_POST['hsa_target'] : '_self';
 
 	//	No errors found, we can add this Group to the table
 	if ($hsa_error_found == FALSE)
@@ -88,10 +90,12 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 				`hsa_link` = %s,
 				`hsa_group` = %s,
 				`hsa_dateend` = %s,
-				`hsa_datestart` = %s
+				`hsa_datestart` = %s,
+				`hsa_target` = %s
 				WHERE hsa_id = %d
 				LIMIT 1",
-				array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], $form['hsa_dateend'], $form['hsa_datestart'], $did)
+				array($form['hsa_text'], $form['hsa_order'], $form['hsa_status'], $form['hsa_link'], $form['hsa_group'], 
+					$form['hsa_dateend'], $form['hsa_datestart'], $form['hsa_target'], $did)
 			);
 		$wpdb->query($sSql);
 		
@@ -130,7 +134,14 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 	
 	<label for="tag-title"><?php _e('Enter target link', WP_hsa_UNIQUE_NAME); ?></label>
 	<input name="hsa_link" type="text" id="hsa_link" size="82" value="<?php echo esc_html(stripslashes($form['hsa_link'])); ?>" maxlength="1024" />
-	<p><?php _e('When someone clicks on the picture, where do you want to send them. URL must start with either http or https.', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('When someone clicks on the announcement, where do you want to send them. URL must start with either http or https.', WP_hsa_UNIQUE_NAME); ?></p>
+	
+	<label for="tag-target"><?php _e('Select target option', WP_hsa_UNIQUE_NAME); ?></label>
+	<select name="hsa_target" id="hsa_target">
+		<option value='_self' <?php if($form['hsa_target'] == '_self') { echo "selected='selected'" ; } ?>>Open in same window</option>
+		<option value='_blank' <?php if($form['hsa_target'] == '_blank') { echo "selected='selected'" ; } ?>>Open in new window</option>
+	</select>
+	<p><?php _e('Do you want to open link in new window?', WP_hsa_UNIQUE_NAME); ?></p>
 	
 	<label for="tag-title"><?php _e('Display status', WP_hsa_UNIQUE_NAME); ?></label>
 	<select name="hsa_status" id="hsa_status">

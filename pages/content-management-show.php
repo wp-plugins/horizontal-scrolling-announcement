@@ -1,5 +1,15 @@
 <?php if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); } ?>
 <?php
+$hsa_pluginversion = get_option('hsa_pluginversion');
+if ($hsa_pluginversion <> "7.9")
+{
+	?>
+	<div class="error fade">
+		<p><strong>Note: You have recently upgraded the plugin. Please "Deactivate" and "Activate" the plugin. This is mandatory and it will not affect your data.</strong></p>
+	</div>
+	<?php
+}
+
 // Form submitted, check the data
 if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
 {
@@ -21,7 +31,7 @@ if (isset($_POST['frm_hsa_display']) && $_POST['frm_hsa_display'] == 'yes')
 	{
 		?>
 		<div class="error fade">
-		  <p><strong>Oops, selected details doesn't exist (1).</strong></p>
+		  <p><strong><?php _e('Oops, selected details doesnt exist.', WP_hsa_UNIQUE_NAME); ?></strong></p>
 		</div>
 		<?php
 	}

@@ -3,7 +3,7 @@
 Plugin Name: Horizontal scrolling announcement
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Description: This horizontal scrolling announcement wordpress plug-in let's scroll the content from one end to another end like reel.    
-Version: 7.8
+Version: 7.9
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
@@ -17,7 +17,7 @@ define("WP_hsa_UNIQUE_NAME", "horizontal-scrolling-announcement");
 define("WP_hsa_TITLE", "Horizontal scrolling announcement");
 define('WP_hsa_FAV', 'http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/');
 define('WP_hsa_LINK', 'Check official website for more information <a target="_blank" href="'.WP_hsa_FAV.'">click here</a>');
-$hsa_db_version = "7.7";
+$hsa_db_version = "7.9";
 
 function announcement()
 {
@@ -81,7 +81,7 @@ function HSA_shortcode( $atts )
 		}
 	}
 
-	$sSql = "select hsa_text,hsa_link from ".WP_HSA_TABLE." where hsa_status='YES'";
+	$sSql = "select hsa_text,hsa_link,hsa_target from ".WP_HSA_TABLE." where hsa_status='YES'";
 	$sSql = $sSql . " and ( hsa_dateend >= NOW() or hsa_dateend = '0000-00-00 00:00:00')";
 	$sSql = $sSql . " and ( hsa_datestart <= NOW() or hsa_datestart = '0000-00-00 00:00:00')";
 	if($group <> "")
@@ -100,16 +100,23 @@ function HSA_shortcode( $atts )
 		foreach ( $data as $data ) 
 		{
 			$link = $data->hsa_link;
+			$target = $data->hsa_target;
+			
+			if($target == "")
+			{
+				$target = "_self";
+			}
+			
 			if($cnt==0) 
 			{  
-				if($link != "") { $hsa = $hsa . "<a href='".$link."'>"; } 
+				if($link != "") { $hsa = $hsa . "<a target='".$target."' href='".$link."'>"; } 
 				$hsa = $hsa . stripslashes($data->hsa_text);
 				if($link != "") { $hsa = $hsa . "</a>"; }
 			}
 			else
 			{
 				$hsa = $hsa . "&nbsp;&nbsp;&nbsp;&nbsp;";
-				if($link != "") { $hsa = $hsa . "<a href='".$link."'>"; } 
+				if($link != "") { $hsa = $hsa . "<a target='".$target."' href='".$link."'>"; } 
 				$hsa = $hsa . stripslashes($data->hsa_text);
 				if($link != "") { $hsa = $hsa . "</a>"; }
 			}			
@@ -132,7 +139,7 @@ function HSA_shortcode( $atts )
 		{
 			$style = get_option('hsa_style');
 		}
-		$what_marquee = $what_marquee . "<div style='padding:3px;'>";
+		$what_marquee = $what_marquee . "<div>";
 		$what_marquee = $what_marquee . "<marquee style='$style' scrollamount='$scrollamount' scrolldelay='$scrolldelay' direction='$direction' onmouseover='this.stop()' onmouseout='this.start()'>";
 		$what_marquee = $what_marquee . $hsa;
 		$what_marquee = $what_marquee . "</marquee>";
@@ -165,6 +172,7 @@ function HSA_uninstall()
 	delete_option('hsa_style');
 	delete_option('hsa_pluginversion');
 	delete_option('hsa_noannouncement');
+	delete_option('hsa_capability');
 	if($wpdb->get_var("show tables like '". WP_HSA_TABLE . "'") == WP_HSA_TABLE) 
 	{
 		$wpdb->query("DROP TABLE ". WP_HSA_TABLE);
@@ -195,6 +203,11 @@ function HSA_activation()
 			 hsa_group VARCHAR(100) DEFAULT 'GROUP1' NOT NULL,
 			 hsa_dateend datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			 hsa_datestart datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+			 hsa_target VARCHAR(20) DEFAULT '_self' NOT NULL,
+			 hsa_extra1 VARCHAR(100) DEFAULT '' NOT NULL,
+			 hsa_extra2 VARCHAR(100) DEFAULT '' NOT NULL,
+			 hsa_extra3 VARCHAR(100) DEFAULT '' NOT NULL,
+			 hsa_extra4 VARCHAR(100) DEFAULT '' NOT NULL,
 			 UNIQUE KEY hsa_id (hsa_id)
 		  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;";
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -202,7 +215,7 @@ function HSA_activation()
 		
 		if($hsa_pluginversion == "")
 		{
-			add_option('hsa_pluginversion', "7.7");
+			add_option('hsa_pluginversion', "7.9");
 		}
 		else
 		{
@@ -222,6 +235,7 @@ function HSA_activation()
 	add_option('hsa_direction', "left");
 	add_option('hsa_style', "");
 	add_option('hsa_noannouncement', "No announcement available or all announcement expired.");
+	add_option('hsa_capability', "manage_options");
 }
 
 function HSA_admin_options() 
@@ -247,7 +261,17 @@ function HSA_admin_options()
 
 function HSA_add_to_menu() 
 {
-	add_options_page('Horizontal scrolling announcement',  __('Horizontal Scrolling', WP_hsa_UNIQUE_NAME), 'manage_options', 'horizontal-scrolling-announcement', 'HSA_admin_options' );
+	$hsa_capability = get_option('hsa_capability');
+	//manage_options(Administrator), edit_posts(Administrator/Editor/Author/Contributor), edit_others_pages(Administrator/Editor)
+	if($hsa_capability == "")
+	{
+		$hsa_capability = "manage_options";
+	}
+	if($hsa_capability <> "manage_options" && $hsa_capability <> "edit_posts" && $hsa_capability <> "edit_others_pages")
+	{
+		$hsa_capability = "manage_options";
+	}
+	add_options_page('Horizontal scrolling announcement',  __('Horizontal Scrolling', WP_hsa_UNIQUE_NAME), $hsa_capability, 'horizontal-scrolling-announcement', 'HSA_admin_options' );
 }
 
 class HSA_widget_register extends WP_Widget 

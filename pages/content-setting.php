@@ -11,6 +11,8 @@
 	$hsa_direction = get_option('hsa_direction');
 	$hsa_style = get_option('hsa_style');
 	$hsa_noannouncement = get_option('hsa_noannouncement');
+	$hsa_capability = get_option('hsa_capability');
+
 	if (isset($_POST['hsa_submit'])) 
 	{
 		//	Just security thingy that wordpress offers us
@@ -22,6 +24,7 @@
 		$hsa_direction = stripslashes($_POST['hsa_direction']);
 		$hsa_style = stripslashes($_POST['hsa_style']);
 		$hsa_noannouncement = stripslashes($_POST['hsa_noannouncement']);
+		$hsa_capability = stripslashes($_POST['hsa_capability']);
 	
 		update_option('hsa_title', $hsa_title );
 		update_option('hsa_scrollamount', $hsa_scrollamount );
@@ -29,7 +32,7 @@
 		update_option('hsa_direction', $hsa_direction );
 		update_option('hsa_style', $hsa_style );
 		update_option('hsa_noannouncement', $hsa_noannouncement );
-		
+		update_option('hsa_capability', $hsa_capability );
 		?>
 		<div class="updated fade">
 			<p><strong><?php _e('Details successfully updated.', WP_hsa_UNIQUE_NAME); ?></strong></p>
@@ -66,6 +69,33 @@
 		<label for="tag-width"><?php _e('No announcement text', WP_hsa_UNIQUE_NAME); ?></label>
 		<input name="hsa_noannouncement" type="text" value="<?php echo $hsa_noannouncement; ?>"  id="hsa_noannouncement" size="70" maxlength="500">
 		<p><?php _e('This text will be display, if no announcement available or all announcement expired.', WP_hsa_UNIQUE_NAME); ?></p>
+		
+		<label for="tag-width"><?php _e('Capability', WP_hsa_UNIQUE_NAME); ?></label>
+		<select name="hsa_capability" id="hsa_capability">
+		<?php
+		if ( current_user_can('manage_options') ) 
+		{
+			?>
+			<option value='manage_options' <?php if($hsa_capability == 'manage_options') { echo "selected='selected'" ; } ?>>Administrator Only</option>
+			<option value='edit_others_pages' <?php if($hsa_capability == 'edit_others_pages') { echo "selected='selected'" ; } ?>>Administrator/Editor</option>
+			<option value='edit_posts' <?php if($hsa_capability == 'edit_posts') { echo "selected='selected'" ; } ?>>Administrator/Editor/Author/Contributor</option>
+			<?php
+		}
+		elseif( current_user_can('edit_others_pages') )
+		{
+			?>
+			<option value='edit_others_pages' <?php if($hsa_capability == 'edit_others_pages') { echo "selected='selected'" ; } ?>>Administrator/Editor</option>
+			<?php
+		}
+		else
+		{
+			?>
+			<option value='edit_posts' <?php if($hsa_capability == 'edit_posts') { echo "selected='selected'" ; } ?>>Administrator/Editor/Author/Contributor</option>
+			<?php
+		}
+		?>
+		</select>
+		<p><?php _e('Select user role to access the plugin admin menu. Only Admin user can change this value.', WP_hsa_UNIQUE_NAME); ?></p>
 		
 		<p class="submit">
 		<input name="hsa_submit" id="hsa_submit" class="button" value="Submit" type="submit" />
