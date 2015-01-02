@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 4.0
-Stable tag: 7.9
+Tested up to: 4.1
+Stable tag: 8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -169,6 +169,10 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 2. In the dashboard Announcement add/update page, new option (Select target option) added to open the link in new window. 
 3. In the dashboard Default Settings page, new option (Capability) added to set users access roles. With this option admin user can give plugin access rights to Editors/Authors.
 
+= 8.0 =
+
+1. Tested up to 4.1
+
 == Changelog ==
 
 = 1.0 =	 
@@ -256,3 +260,7 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 1. Removed padding from marquee text.
 2. In the dashboard Announcement add/update page, new option (Select target option) added to open the link in new window. 
 3. In the dashboard Default Settings page, new option (Capability) added to set users access roles. With this option Admin user can give plugin access rights to Editors/Authors.
+
+= 8.0 =
+
+1. Tested up to 4.1
