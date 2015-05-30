@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 4.1
-Stable tag: 8.0
+Tested up to: 4.2.2
+Stable tag: 8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -173,6 +173,10 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 1. Tested up to 4.1
 
+= 8.1 =
+
+1. Tested up to 4.2.2
+
 == Changelog ==
 
 = 1.0 =	 
@@ -264,3 +268,7 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 = 8.0 =
 
 1. Tested up to 4.1
+
+= 8.1 =
+
+1. Tested up to 4.2.2
