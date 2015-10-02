@@ -5,8 +5,8 @@ Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announc
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Tags: Horizontal, Scrolling, Announcement, Widget, Wordpress, Plugin
 Requires at least: 3.4
-Tested up to: 4.2.2
-Stable tag: 8.1
+Tested up to: 4.3.1
+Stable tag: 8.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	
@@ -43,6 +43,12 @@ This horizontal scrolling announcement wordpress plug-in lets scroll the content
 = Special Note =
 
 Those who are getting problem after plugin upgrade. Please do this one time manually. Deactivate and Activate the plugin manually once. So the plugin will start the work as usual. Please post your comments if you have any problem.
+
+= Translators =
+
+* English (en_EN) - [Gopi Ramasamy](http://www.gopiplus.com/)
+* French (fr_FR) - [French](#)
+* Polish (pl) - [Abdul Sattar](https://www.couponmachine.in/)
 
 = Frequently Asked Questions =
 
@@ -148,11 +154,11 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 = 7.5 =
 
-1. Tested up to 3.8
+* Tested up to 3.8
 
 = 7.6 =
 
-1. Tested up to 3.9
+* Tested up to 3.9
 
 = 7.7 =
 
@@ -161,7 +167,7 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 = 7.8 =
 
-1. Tested up to 4.0
+* Tested up to 4.0
 
 = 7.9 =
 
@@ -171,11 +177,19 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 = 8.0 =
 
-1. Tested up to 4.1
+* Tested up to 4.1
 
 = 8.1 =
 
-1. Tested up to 4.2.2
+* Tested up to 4.2.2
+
+= 8.2 =
+
+* Tested up to 4.3
+
+= 8.2.1 =
+
+* Text Domain slug has been added for Language Packs.
 
 == Changelog ==
 
@@ -244,11 +258,11 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 = 7.5 =
 
-1. Tested up to 3.8
+* Tested up to 3.8
 
 = 7.6 =
 
-1. Tested up to 3.9
+* Tested up to 3.9
 
 = 7.7 =
 
@@ -257,7 +271,7 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 = 7.8 =
 
-1. Tested up to 4.0
+* Tested up to 4.0
 
 = 7.9 =
 
@@ -267,8 +281,16 @@ Plugin *.po file (horizontal-scrolling-announcement.po) available in the languag
 
 = 8.0 =
 
-1. Tested up to 4.1
+* Tested up to 4.1
 
 = 8.1 =
 
-1. Tested up to 4.2.2
+* Tested up to 4.2.2
+
+= 8.2 =
+
+* Tested up to 4.3
+
+= 8.2.1 =
+
+* Text Domain slug has been added for Language Packs.

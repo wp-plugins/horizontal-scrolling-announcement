@@ -3,7 +3,7 @@
   <div class="form-wrap">
     <div id="icon-edit" class="icon32 icon32-posts-post"><br>
     </div>
-    <h2><?php _e(WP_hsa_TITLE, WP_hsa_UNIQUE_NAME); ?></h2>	
+    <h2><?php _e(WP_hsa_TITLE, 'horizontal-scrolling-announcement'); ?></h2>	
     <?php
 	$hsa_title = get_option('hsa_title');
 	$hsa_scrollamount = get_option('hsa_scrollamount');
@@ -35,42 +35,42 @@
 		update_option('hsa_capability', $hsa_capability );
 		?>
 		<div class="updated fade">
-			<p><strong><?php _e('Details successfully updated.', WP_hsa_UNIQUE_NAME); ?></strong></p>
+			<p><strong><?php _e('Details successfully updated.', 'horizontal-scrolling-announcement'); ?></strong></p>
 		</div>
 		<?php
 	}
 	?>
 	<script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/horizontal-scrolling-announcement/pages/setting.js"></script>
     <form name="hsa_form" method="post" action="">
-        <h3><?php _e('Default settings', WP_hsa_UNIQUE_NAME); ?></h3>
-		<label for="tag-width"><?php _e('Widget Title', WP_hsa_UNIQUE_NAME); ?></label>
+        <h3><?php _e('Default settings', 'horizontal-scrolling-announcement'); ?></h3>
+		<label for="tag-width"><?php _e('Widget Title', 'horizontal-scrolling-announcement'); ?></label>
 		<input name="hsa_title" type="text" value="<?php echo $hsa_title; ?>"  id="hsa_title" size="70" maxlength="150">
-		<p><?php _e('Please enter your widget title.', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('Please enter your widget title.', 'horizontal-scrolling-announcement'); ?></p>
 		
-		<label for="tag-width"><?php _e('Scroll amount', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('Scroll amount', 'horizontal-scrolling-announcement'); ?></label>
 		<input name="hsa_scrollamount" type="text" value="<?php echo $hsa_scrollamount; ?>"  id="hsa_scrollamount" maxlength="3">  
-		<p><?php _e('Please enter scroll amount, This will make the scroll faster. (Example: 2)', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('Please enter scroll amount, This will make the scroll faster. (Example: 2)', 'horizontal-scrolling-announcement'); ?></p>
 		
-		<label for="tag-width"><?php _e('Scroll delay', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('Scroll delay', 'horizontal-scrolling-announcement'); ?></label>
 		<input name="hsa_scrolldelay" type="text" value="<?php echo $hsa_scrolldelay; ?>"  id="hsa_scrolldelay" maxlength="3">
-		<p><?php _e('Set the amount of delay in milliseconds. (Example: 5)', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('Set the amount of delay in milliseconds. (Example: 5)', 'horizontal-scrolling-announcement'); ?></p>
 		
-		<label for="tag-width"><?php _e('Direction', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('Direction', 'horizontal-scrolling-announcement'); ?></label>
 		<select name="hsa_direction" id="hsa_direction">
 			<option value='left' <?php if($hsa_direction == 'left') { echo "selected='selected'" ; } ?>>Right to Left</option>
 			<option value='right' <?php if($hsa_direction == 'right') { echo "selected='selected'" ; } ?>>Left to Right</option>
 		</select>
-		<p><?php _e('Please select your scroll direction.', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('Please select your scroll direction.', 'horizontal-scrolling-announcement'); ?></p>
 		
-		<label for="tag-width"><?php _e('CSS attribute', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('CSS attribute', 'horizontal-scrolling-announcement'); ?></label>
 		<input name="hsa_style" type="text" value="<?php echo $hsa_style; ?>"  id="hsa_style" size="70" maxlength="500">
-		<p><?php _e('Please enter your CSS attributes for style. (Example: color:#FF0000; font:Arial;)', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('Please enter your CSS attributes for style. (Example: color:#FF0000; font:Arial;)', 'horizontal-scrolling-announcement'); ?></p>
 		
-		<label for="tag-width"><?php _e('No announcement text', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('No announcement text', 'horizontal-scrolling-announcement'); ?></label>
 		<input name="hsa_noannouncement" type="text" value="<?php echo $hsa_noannouncement; ?>"  id="hsa_noannouncement" size="70" maxlength="500">
-		<p><?php _e('This text will be display, if no announcement available or all announcement expired.', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('This text will be display, if no announcement available or all announcement expired.', 'horizontal-scrolling-announcement'); ?></p>
 		
-		<label for="tag-width"><?php _e('Capability', WP_hsa_UNIQUE_NAME); ?></label>
+		<label for="tag-width"><?php _e('Capability', 'horizontal-scrolling-announcement'); ?></label>
 		<select name="hsa_capability" id="hsa_capability">
 		<?php
 		if ( current_user_can('manage_options') ) 
@@ -95,7 +95,7 @@
 		}
 		?>
 		</select>
-		<p><?php _e('Select user role to access the plugin admin menu. Only Admin user can change this value.', WP_hsa_UNIQUE_NAME); ?></p>
+		<p><?php _e('Select user role to access the plugin admin menu. Only Admin user can change this value.', 'horizontal-scrolling-announcement'); ?></p>
 		
 		<p class="submit">
 		<input name="hsa_submit" id="hsa_submit" class="button" value="Submit" type="submit" />

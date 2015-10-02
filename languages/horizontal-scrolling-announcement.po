@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizontal scrolling announcement\n"
-"POT-Creation-Date: 2014-10-06 10:22+0800\n"
-"PO-Revision-Date: 2014-10-06 10:22+0800\n"
+"POT-Creation-Date: 2015-10-03 01:04+0800\n"
+"PO-Revision-Date: 2015-10-03 01:04+0800\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -13,56 +13,56 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../horizontal-scrolling-announcement.php:274
-#: ../horizontal-scrolling-announcement.php:282
+#: ../horizontal-scrolling-announcement.php:276
+#: ../horizontal-scrolling-announcement.php:284
 msgid "Horizontal Scrolling"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:281
+#: ../horizontal-scrolling-announcement.php:283
 msgid "Horizontal scrolling announcement"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:341
+#: ../horizontal-scrolling-announcement.php:343
 msgid "Title"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:345
+#: ../horizontal-scrolling-announcement.php:347
 #: ../pages/content-setting.php:50
 msgid "Scroll amount"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:349
+#: ../horizontal-scrolling-announcement.php:351
 #: ../pages/content-setting.php:54
 msgid "Scroll delay"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:353
+#: ../horizontal-scrolling-announcement.php:355
 #: ../pages/content-setting.php:58
 msgid "Direction"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:355
+#: ../horizontal-scrolling-announcement.php:357
 msgid "Select"
 msgstr ""
 
-#: ../horizontal-scrolling-announcement.php:361
-#: ../pages/content-management-show.php:90
-#: ../pages/content-management-show.php:101
+#: ../horizontal-scrolling-announcement.php:363
+#: ../pages/content-management-show.php:91
+#: ../pages/content-management-show.php:102
 msgid "Group"
 msgstr ""
 
 #: ../pages/content-management-add.php:30
-#: ../pages/content-management-edit.php:58
+#: ../pages/content-management-edit.php:59
 msgid "Please enter the text."
 msgstr ""
 
 #: ../pages/content-management-add.php:37
-#: ../pages/content-management-edit.php:65
+#: ../pages/content-management-edit.php:66
 msgid "Please enter the display order, only number."
 msgstr ""
 
 #: ../pages/content-management-add.php:44
-#: ../pages/content-management-edit.php:72
+#: ../pages/content-management-edit.php:73
 msgid "Please select the display status."
 msgstr ""
 
@@ -75,170 +75,171 @@ msgid "Add details"
 msgstr ""
 
 #: ../pages/content-management-add.php:108
-#: ../pages/content-management-edit.php:131
+#: ../pages/content-management-edit.php:132
 msgid "Enter the announcement"
 msgstr ""
 
 #: ../pages/content-management-add.php:110
-#: ../pages/content-management-edit.php:133
+#: ../pages/content-management-edit.php:134
 msgid "Please enter your announcement text."
 msgstr ""
 
 #: ../pages/content-management-add.php:112
-#: ../pages/content-management-edit.php:135
+#: ../pages/content-management-edit.php:136
 msgid "Enter target link"
 msgstr ""
 
 #: ../pages/content-management-add.php:114
-#: ../pages/content-management-edit.php:137
+#: ../pages/content-management-edit.php:138
 msgid ""
 "When someone clicks on the announcement, where do you want to send them. URL "
 "must start with either http or https."
 msgstr ""
 
 #: ../pages/content-management-add.php:116
-#: ../pages/content-management-edit.php:139
+#: ../pages/content-management-edit.php:140
 msgid "Select target option"
 msgstr ""
 
 #: ../pages/content-management-add.php:121
-#: ../pages/content-management-edit.php:144
+#: ../pages/content-management-edit.php:145
 msgid "Do you want to open link in new window?"
 msgstr ""
 
 #: ../pages/content-management-add.php:123
-#: ../pages/content-management-edit.php:146
+#: ../pages/content-management-edit.php:147
 msgid "Display status"
 msgstr ""
 
 #: ../pages/content-management-add.php:128
-#: ../pages/content-management-edit.php:151
+#: ../pages/content-management-edit.php:152
 msgid "Do you want to show this announcement in your scroll?"
 msgstr ""
 
 #: ../pages/content-management-add.php:130
-#: ../pages/content-management-edit.php:153
+#: ../pages/content-management-edit.php:154
 msgid "Display order"
 msgstr ""
 
 #: ../pages/content-management-add.php:132
-#: ../pages/content-management-edit.php:155
+#: ../pages/content-management-edit.php:156
 msgid ""
 "What order should this announcement be played in. should it come 1st, 2nd, "
 "3rd, etc.."
 msgstr ""
 
 #: ../pages/content-management-add.php:134
-#: ../pages/content-management-edit.php:157
+#: ../pages/content-management-edit.php:158
 msgid "Announcement group"
 msgstr ""
 
 #: ../pages/content-management-add.php:159
-#: ../pages/content-management-edit.php:188
+#: ../pages/content-management-edit.php:189
 msgid "Please select your announcement group."
 msgstr ""
 
 #: ../pages/content-management-add.php:161
-#: ../pages/content-management-edit.php:190
+#: ../pages/content-management-edit.php:191
 msgid "Start date"
 msgstr ""
 
 #: ../pages/content-management-add.php:163
-#: ../pages/content-management-edit.php:192
+#: ../pages/content-management-edit.php:193
 msgid ""
 "Please enter announcement display start date in this format YYYY-MM-DD <br /"
 "> 0000-00-00 : Is equal to no start date."
 msgstr ""
 
 #: ../pages/content-management-add.php:165
-#: ../pages/content-management-edit.php:194
+#: ../pages/content-management-edit.php:195
 msgid "Expiration date"
 msgstr ""
 
 #: ../pages/content-management-add.php:167
-#: ../pages/content-management-edit.php:196
+#: ../pages/content-management-edit.php:197
 msgid ""
 "Please enter the expiration date in this format YYYY-MM-DD <br /> "
 "9999-12-31 : Is equal to no expire."
 msgstr ""
 
 #: ../pages/content-management-add.php:174
-#: ../pages/content-management-edit.php:203
-#: ../pages/content-management-show.php:156
+#: ../pages/content-management-edit.php:204
+#: ../pages/content-management-show.php:157
 msgid "Help"
 msgstr ""
 
-#: ../pages/content-management-edit.php:129
-msgid "Update details"
-msgstr ""
-
-#: ../pages/content-management-show.php:34
+#: ../pages/content-management-edit.php:18
+#: ../pages/content-management-show.php:35
 msgid "Oops, selected details doesnt exist."
 msgstr ""
 
-#: ../pages/content-management-show.php:54
+#: ../pages/content-management-edit.php:130
+msgid "Update details"
+msgstr ""
+
+#: ../pages/content-management-show.php:55
 msgid "Selected record was successfully deleted."
 msgstr ""
 
-#: ../pages/content-management-show.php:72
-#: ../pages/content-management-show.php:150
+#: ../pages/content-management-show.php:73
+#: ../pages/content-management-show.php:151
 msgid "Add New"
-msgstr ""
-
-#: ../pages/content-management-show.php:87
-#: ../pages/content-management-show.php:98
-msgid "Announcement text"
 msgstr ""
 
 #: ../pages/content-management-show.php:88
 #: ../pages/content-management-show.php:99
-msgid "Order"
+msgid "Announcement text"
 msgstr ""
 
 #: ../pages/content-management-show.php:89
 #: ../pages/content-management-show.php:100
-msgid "Display"
+msgid "Order"
 msgstr ""
 
-#: ../pages/content-management-show.php:91
-#: ../pages/content-management-show.php:102
-msgid "Start Date"
+#: ../pages/content-management-show.php:90
+#: ../pages/content-management-show.php:101
+msgid "Display"
 msgstr ""
 
 #: ../pages/content-management-show.php:92
 #: ../pages/content-management-show.php:103
+msgid "Start Date"
+msgstr ""
+
+#: ../pages/content-management-show.php:93
+#: ../pages/content-management-show.php:104
 msgid "Expiration"
 msgstr ""
 
-#: ../pages/content-management-show.php:118
+#: ../pages/content-management-show.php:119
 msgid "Edit"
 msgstr ""
 
-#: ../pages/content-management-show.php:120
+#: ../pages/content-management-show.php:121
 msgid "Delete"
 msgstr ""
 
-#: ../pages/content-management-show.php:137
+#: ../pages/content-management-show.php:138
 msgid "No records available."
 msgstr ""
 
-#: ../pages/content-management-show.php:153
+#: ../pages/content-management-show.php:154
 msgid "Default Settings"
 msgstr ""
 
-#: ../pages/content-management-show.php:161
+#: ../pages/content-management-show.php:162
 msgid "Plugin configuration option"
 msgstr ""
 
-#: ../pages/content-management-show.php:163
+#: ../pages/content-management-show.php:164
 msgid "Drag and drop the widget to your sidebar."
 msgstr ""
 
-#: ../pages/content-management-show.php:164
+#: ../pages/content-management-show.php:165
 msgid "Add the plugin in the posts or pages using short code."
 msgstr ""
 
-#: ../pages/content-management-show.php:165
+#: ../pages/content-management-show.php:166
 msgid "Add directly in to the theme using PHP code."
 msgstr ""
 

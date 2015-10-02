@@ -3,10 +3,12 @@
 Plugin Name: Horizontal scrolling announcement
 Plugin URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Description: This horizontal scrolling announcement wordpress plug-in let's scroll the content from one end to another end like reel.    
-Version: 8.1
+Version: 8.2.1
 Author: Gopi Ramasamy
 Author URI: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
 Donate link: http://www.gopiplus.com/work/2010/07/18/horizontal-scrolling-announcement/
+Text Domain: horizontal-scrolling-announcement
+Domain Path: /languages
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
@@ -271,15 +273,15 @@ function HSA_add_to_menu()
 	{
 		$hsa_capability = "manage_options";
 	}
-	add_options_page('Horizontal scrolling announcement',  __('Horizontal Scrolling', WP_hsa_UNIQUE_NAME), $hsa_capability, 'horizontal-scrolling-announcement', 'HSA_admin_options' );
+	add_options_page('Horizontal scrolling announcement',  __('Horizontal Scrolling', 'horizontal-scrolling-announcement'), $hsa_capability, 'horizontal-scrolling-announcement', 'HSA_admin_options' );
 }
 
 class HSA_widget_register extends WP_Widget 
 {
 	function __construct() 
 	{
-		$widget_ops = array('classname' => 'widget_text hsa-widget', 'description' => __('Horizontal scrolling announcement', WP_hsa_UNIQUE_NAME), 'horizontal-scrolling');
-		parent::__construct('HorizontalScrolling', __('Horizontal Scrolling', WP_hsa_UNIQUE_NAME), $widget_ops);
+		$widget_ops = array('classname' => 'widget_text hsa-widget', 'description' => __('Horizontal scrolling announcement', 'horizontal-scrolling-announcement'), 'horizontal-scrolling');
+		parent::__construct('HorizontalScrolling', __('Horizontal Scrolling', 'horizontal-scrolling-announcement'), $widget_ops);
 	}
 	
 	function widget( $args, $instance ) 
@@ -338,27 +340,27 @@ class HSA_widget_register extends WP_Widget
 	
 		?>
 		<p>
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', WP_hsa_UNIQUE_NAME); ?></label>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'horizontal-scrolling-announcement'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" />
         </p>
 		<p>
-            <label for="<?php echo $this->get_field_id('scrollamount'); ?>"><?php _e('Scroll amount', WP_hsa_UNIQUE_NAME); ?></label>
+            <label for="<?php echo $this->get_field_id('scrollamount'); ?>"><?php _e('Scroll amount', 'horizontal-scrolling-announcement'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('scrollamount'); ?>" name="<?php echo $this->get_field_name('scrollamount'); ?>" type="text" value="<?php echo $scrollamount; ?>" />
         </p>
 		<p>
-            <label for="<?php echo $this->get_field_id('scrolldelay'); ?>"><?php _e('Scroll delay', WP_hsa_UNIQUE_NAME); ?></label>
+            <label for="<?php echo $this->get_field_id('scrolldelay'); ?>"><?php _e('Scroll delay', 'horizontal-scrolling-announcement'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('scrolldelay'); ?>" name="<?php echo $this->get_field_name('scrolldelay'); ?>" type="text" value="<?php echo $scrolldelay; ?>" />
         </p>
 		<p>
-            <label for="<?php echo $this->get_field_id('direction'); ?>"><?php _e('Direction', WP_hsa_UNIQUE_NAME); ?></label>
+            <label for="<?php echo $this->get_field_id('direction'); ?>"><?php _e('Direction', 'horizontal-scrolling-announcement'); ?></label>
 			<select class="widefat" id="<?php echo $this->get_field_id('direction'); ?>" name="<?php echo $this->get_field_name('direction'); ?>">
-				<option value=""><?php _e('Select', WP_hsa_UNIQUE_NAME); ?></option>
+				<option value=""><?php _e('Select', 'horizontal-scrolling-announcement'); ?></option>
 				<option value="left" <?php $this->HSA_render_selected($direction == 'left'); ?>>Right to Left</option>
 				<option value="right" <?php $this->HSA_render_selected($direction == 'right'); ?>>Left to Right</option>
 			</select>
         </p>
 		<p>
-            <label for="<?php echo $this->get_field_id('group'); ?>"><?php _e('Group', WP_hsa_UNIQUE_NAME); ?></label>
+            <label for="<?php echo $this->get_field_id('group'); ?>"><?php _e('Group', 'horizontal-scrolling-announcement'); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id('group'); ?>" name="<?php echo $this->get_field_name('group'); ?>" type="text" value="<?php echo $group; ?>" />
         </p>
 		<p><?php echo WP_hsa_LINK; ?></p>
@@ -376,7 +378,7 @@ class HSA_widget_register extends WP_Widget
 
 function HSA_textdomain() 
 {
-	  load_plugin_textdomain( WP_hsa_UNIQUE_NAME, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+	  load_plugin_textdomain( 'horizontal-scrolling-announcement', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 }
 
 add_action('plugins_loaded', 'HSA_textdomain');

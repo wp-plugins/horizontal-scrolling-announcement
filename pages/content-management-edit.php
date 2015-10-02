@@ -2,6 +2,7 @@
 <div class="wrap">
 <?php
 $did = isset($_GET['did']) ? $_GET['did'] : '0';
+if(!is_numeric($did)) { die('<p>Are you sure you want to do this?</p>'); }
 
 // First check if ID exist with requested ID
 $sSql = $wpdb->prepare(
@@ -14,7 +15,7 @@ $result = $wpdb->get_var($sSql);
 
 if ($result != '1')
 {
-	?><div class="error fade"><p><strong>Oops, selected details doesn't exist.</strong></p></div><?php
+	?><div class="error fade"><p><strong><?php _e('Oops, selected details doesnt exist.', 'horizontal-scrolling-announcement'); ?></strong></p></div><?php
 }
 else
 {
@@ -55,21 +56,21 @@ if (isset($_POST['hsa_form_submit']) && $_POST['hsa_form_submit'] == 'yes')
 	$form['hsa_text'] = isset($_POST['hsa_text']) ? $_POST['hsa_text'] : '';
 	if ($form['hsa_text'] == '')
 	{
-		$hsa_errors[] = __('Please enter the text.', WP_hsa_UNIQUE_NAME);
+		$hsa_errors[] = __('Please enter the text.', 'horizontal-scrolling-announcement');
 		$hsa_error_found = TRUE;
 	}
 
 	$form['hsa_order'] = isset($_POST['hsa_order']) ? $_POST['hsa_order'] : '';
 	if ($form['hsa_order'] == '')
 	{
-		$hsa_errors[] = __('Please enter the display order, only number.', WP_hsa_UNIQUE_NAME);
+		$hsa_errors[] = __('Please enter the display order, only number.', 'horizontal-scrolling-announcement');
 		$hsa_error_found = TRUE;
 	}
 
 	$form['hsa_status'] = isset($_POST['hsa_status']) ? $_POST['hsa_status'] : '';
 	if ($form['hsa_status'] == '')
 	{
-		$hsa_errors[] = __('Please select the display status.', WP_hsa_UNIQUE_NAME);
+		$hsa_errors[] = __('Please select the display status.', 'horizontal-scrolling-announcement');
 		$hsa_error_found = TRUE;
 	}
 	
@@ -124,37 +125,37 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 <script language="JavaScript" src="<?php echo get_option('siteurl'); ?>/wp-content/plugins/horizontal-scrolling-announcement/pages/setting.js"></script>
 <div class="form-wrap">
 	<div id="icon-edit" class="icon32 icon32-posts-post"><br></div>
-	<h2><?php _e(WP_hsa_TITLE, WP_hsa_UNIQUE_NAME); ?></h2>
+	<h2><?php _e(WP_hsa_TITLE, 'horizontal-scrolling-announcement'); ?></h2>
 	<form name="form_hsa" method="post" action="#" onsubmit="return hsa_submit()"  >
-    <h3><?php _e('Update details', WP_hsa_UNIQUE_NAME); ?></h3>
+    <h3><?php _e('Update details', 'horizontal-scrolling-announcement'); ?></h3>
       
-	<label for="tag-title"><?php _e('Enter the announcement', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Enter the announcement', 'horizontal-scrolling-announcement'); ?></label>
 	<textarea name="hsa_text" cols="80" rows="6" id="hsa_text"><?php echo esc_html(stripslashes($form['hsa_text'])); ?></textarea>
-	<p><?php _e('Please enter your announcement text.', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('Please enter your announcement text.', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-title"><?php _e('Enter target link', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Enter target link', 'horizontal-scrolling-announcement'); ?></label>
 	<input name="hsa_link" type="text" id="hsa_link" size="82" value="<?php echo esc_html(stripslashes($form['hsa_link'])); ?>" maxlength="1024" />
-	<p><?php _e('When someone clicks on the announcement, where do you want to send them. URL must start with either http or https.', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('When someone clicks on the announcement, where do you want to send them. URL must start with either http or https.', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-target"><?php _e('Select target option', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-target"><?php _e('Select target option', 'horizontal-scrolling-announcement'); ?></label>
 	<select name="hsa_target" id="hsa_target">
 		<option value='_self' <?php if($form['hsa_target'] == '_self') { echo "selected='selected'" ; } ?>>Open in same window</option>
 		<option value='_blank' <?php if($form['hsa_target'] == '_blank') { echo "selected='selected'" ; } ?>>Open in new window</option>
 	</select>
-	<p><?php _e('Do you want to open link in new window?', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('Do you want to open link in new window?', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-title"><?php _e('Display status', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Display status', 'horizontal-scrolling-announcement'); ?></label>
 	<select name="hsa_status" id="hsa_status">
 		<option value='YES' <?php if($form['hsa_status'] == 'YES') { echo "selected='selected'" ; } ?>>Yes</option>
 		<option value='NO' <?php if($form['hsa_status'] == 'NO') { echo "selected='selected'" ; } ?>>No</option>
 	</select>
-	<p><?php __('Do you want to show this announcement in your scroll?', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php __('Do you want to show this announcement in your scroll?', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-title"><?php _e('Display order', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Display order', 'horizontal-scrolling-announcement'); ?></label>
 	<input name="hsa_order" type="text" id="hsa_order" value="<?php echo $form['hsa_order']; ?>" maxlength="3" />
-	<p><?php _e('What order should this announcement be played in. should it come 1st, 2nd, 3rd, etc..', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('What order should this announcement be played in. should it come 1st, 2nd, 3rd, etc..', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-title"><?php _e('Announcement group', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Announcement group', 'horizontal-scrolling-announcement'); ?></label>
 	<select name="hsa_group" id="hsa_group">
 	<option value='Select'>Select</option>
 	<?php
@@ -185,22 +186,22 @@ if ($hsa_error_found == FALSE && strlen($hsa_success) > 0)
 	}
 	?>
 	</select>
-	<p><?php _e('Please select your announcement group.', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('Please select your announcement group.', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-title"><?php _e('Start date', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Start date', 'horizontal-scrolling-announcement'); ?></label>
 	<input name="hsa_datestart" type="text" id="hsa_datestart" value="<?php echo substr($form['hsa_datestart'],0,10); ?>" maxlength="10" />
-	<p><?php _e('Please enter announcement display start date in this format YYYY-MM-DD <br /> 0000-00-00 : Is equal to no start date.', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('Please enter announcement display start date in this format YYYY-MM-DD <br /> 0000-00-00 : Is equal to no start date.', 'horizontal-scrolling-announcement'); ?></p>
 	
-	<label for="tag-title"><?php _e('Expiration date', WP_hsa_UNIQUE_NAME); ?></label>
+	<label for="tag-title"><?php _e('Expiration date', 'horizontal-scrolling-announcement'); ?></label>
 	<input name="hsa_dateend" type="text" id="hsa_dateend" value="<?php echo substr($form['hsa_dateend'],0,10); ?>" maxlength="10" />
-	<p><?php _e('Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-31 : Is equal to no expire.', WP_hsa_UNIQUE_NAME); ?></p>
+	<p><?php _e('Please enter the expiration date in this format YYYY-MM-DD <br /> 9999-12-31 : Is equal to no expire.', 'horizontal-scrolling-announcement'); ?></p>
 	  
 	<input name="hsa_id" id="hsa_id" type="hidden" value="<?php echo $form['hsa_id']; ?>">
 	<input type="hidden" name="hsa_form_submit" value="yes"/>
 	<p class="submit">
 		<input name="publish" lang="publish" class="button add-new-h2" value="Submit" type="submit" />
 		<input name="publish" lang="publish" class="button add-new-h2" onclick="hsa_redirect()" value="Cancel" type="button" />
-		<input name="Help" lang="publish" class="button add-new-h2" onclick="hsa_help()" value="<?php _e('Help', WP_hsa_UNIQUE_NAME); ?>" type="button" />
+		<input name="Help" lang="publish" class="button add-new-h2" onclick="hsa_help()" value="<?php _e('Help', 'horizontal-scrolling-announcement'); ?>" type="button" />
 	</p>
 	<?php wp_nonce_field('hsa_form_edit'); ?>
     </form>
